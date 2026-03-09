@@ -1,290 +1,178 @@
-# 🚗 Thurion — Plataforma de Visibilidade Veicular
+# 🚗 Thurion — Saúde Veicular Inteligente
 
-> **Saúde do Ativo • Evidência Fiscal • Visibilidade Inteligente**  
-> In-Device First • Backend Soberano • Cache Inteligente • Multi-tenant
+> **Monitore a saúde do seu veículo com inteligência artificial**  
+> Rastreamento automático • Análise de severidade • Manutenção preditiva
 
 ---
 
-## 💡 Visão Geral
+## 💡 O que é o Thurion?
 
-O Thurion redefine o veículo como uma **Entidade Viva**: um ativo que envelhece, adoece, responde ao uso e pode ser cuidado preventivamente. Traduzimos telemetria, uso e contexto em **Visibilidade Veicular Inteligente** através de processamento embarcado em Rust e modelos matemáticos de severidade.
+O Thurion é um aplicativo que transforma seu veículo em uma **Entidade Viva**: ele entende como o carro está sendo usado, identifica padrões de desgaste e prev quando precisa de manutenção.
 
 ### O que o Thurion NÃO é
-* ❌ Um rastreador
+* ❌ Um rastreador GPS
 * ❌ Um sistema de vigilância  
-* ❌ Um software punitivo
+* ❌ Um app para controlar motoristas
 
 ### O que o Thurion É
-* ✅ Um sistema de saúde do ativo
-* ✅ Uma camada de evidência operacional
-* ✅ Um motor de eficiência econômica
-* ✅ Um prontuário veicular auditável
+* ✅ Um sistema de saúde do veículo
+* ✅ Um assistente de manutenção preditiva
+* ✅ Um registro inteligente de quilometragem
+* ✅ Uma ferramenta de economia e previsibilidade
 
 ---
 
-## 🏗️ Arquitetura Multi-Repository
+## � Para quem é o Thurion?
 
-O projeto Thurion é organizado em repositórios especializados para garantir clareza, manutenibilidade e desenvolvimento paralelo:
+### 👨‍👩‍👧‍👦 Guardião Familiar
+**Plano Free** - Para uso pessoal
+- Saiba quando seu carro precisa de manutenção
+- Tenha um registro completo da quilometragem
+- Evite surpresas com falhas inesperadas
 
-### 📱 [thurion-ios](./thurion-ios) — Aplicativo iOS
-Implementação iOS completa com SwiftUI e The Composable Architecture (TCA).
+### 🚚 Operador Intensivo  
+**Plano Pro - R$ X/mês** - Para motoristas profissionais
+- Proteja sua margem de lucro
+- Tenha evidência fiscal das viagens
+- Otimize a vida útil do seu veículo
 
-**Stack Tecnológico:**
-- **SwiftUI** - Interface declarativa moderna
-- **TCA** - Arquitetura reativa para gerenciamento de estado
-- **CoreML** - Inferência de ML on-device para classificação de eventos
-- **ActivityKit** - Live Activities e Dynamic Island
-- **CoreMotion/CoreLocation** - Sensores GPS e movimento
-
-**Funcionalidades Principais:**
-- Rastreamento automático de trajetos com ML híbrido
-- Map matching de alta precisão (HMM/Viterbi)
-- Classificação de eventos (buracos, lombadas, curvas)
-- Live Activities com Dynamic Island
-- Processamento offline completo
-
----
-
-### 🤖 [thurion-android](./thurion-android) — Aplicativo Android  
-Implementação Android que espelha a arquitetura iOS com configuração centralizada.
-
-**Stack Tecnológico:**
-- **Kotlin** - Linguagem principal moderna
-- **Gradle** - Build system com tasks customizadas
-- **JNI Bridge** - Integração com Rust core
-- **EncryptedSharedPreferences** - Armazenamento seguro
-
-**Paridade com iOS:**
-- Sistema de configuração centralizado (`Project.kt` vs `Project.swift`)
-- Build automatizado do Rust core
-- Arquitetura de serviços similar
-- Toggle local/remote para desenvolvimento
+### 🏢 Gestor de Frota
+**Planos Empresariais** - Para 5-200 veículos
+- Planejamento preditivo de manutenção
+- Redução de custos operacionais
+- Gestão inteligente sem vigilância
 
 ---
 
-### ⚙️ [thurion-core](./thurion-core) — Motor de Computação Rust
-Coração embarcado multiplataforma que processa todos os dados dos sensores.
+## ✨ Funcionalidades Principais
 
-**Capacidades:**
-- **Detecção de Direção** - Pipeline ML híbrido (Rust + CoreML)
-- **Processamento GPS** - Extended Kalman Filter, normalização
-- **Map Matching** - HMM/Viterbi com R-tree e A*
-- **Segmentação de Viagem** - Splits automáticos e métricas
-- **Cálculo de Saúde** - Modelo matemático H(t) e Score Veicular
-- **Persistência** - Armazenamento TLV binário eficiente
+### 📍 Rastreamento Automático
+- Inicia e para automaticamente
+- Funciona mesmo com app fechado
+- Interface intuitiva com Dynamic Island (iOS)
 
-**Integração via UniFFI:**
-- Bridge Swift ↔ Rust e Kotlin ↔ Rust
-- Geração automática de bindings
-- Callbacks para comunicação bidirecional
-- Build multiplataforma com Makefile centralizado
+### 🗺️ Mapas Inteligentes
+- Rotas precisas com map matching
+- Identificação de eventos de direção
+- Visualização clara no mapa
 
----
+### 📊 Saúde Veicular
+- Score de saúde 0-1000
+- Alertas de manutenção preditiva
+- Análise de severidade do uso
 
-### 📋 [thurion-project](./thurion-project) — Documentação & Arquitetura
-Repositório central com documentação de negócio, produto e arquitetura.
-
-**Conteúdo Principal:**
-- **Visão de Produto** - Proposta de valor, personas, planos
-- **Modelo de Negócio** - Precificação, unit economics, go-to-market  
-- **Arquitetura** - ADRs, fluxos de dados, princípios
-- **Documentação Técnica** - Integrações, compliance, operações
-
-**Princípios Arquiteturais:**
-- Backend é a autoridade única
-- Mobile app é offline-first e in-device
-- Thurion-Sync como broker de estado (futuro B2B)
-- Tudo auditável (LGPD, fiscal, operacional)
+### 📱 Live Activities
+- Acompanhamento em tempo real
+- Dynamic Island no iPhone 14+
+- Notificações inteligentes
 
 ---
 
-## 🔄 Como os Repositórios Trabalham Juntos
+## � Aplicativos Disponíveis
 
-### Fluxo de Dados Principal
+### iOS
+- **Compatibilidade:** iOS 17.0+
+- **Recursos:** Live Activities, Dynamic Island, Widget
+- **Download:** App Store (em breve)
 
-```
-Mobile Apps (iOS/Android)
-    ↓ (sensores GPS/IMU)
-thurion-core (Rust processing)
-    ↓ (resultados processados)
-Mobile Apps (UI/UX)
-    ↓ (sincronização quando online)
-Backend (validação/auditoria)
-```
-
-### Desenvolvimento Integrado
-
-**Build System:**
-- `thurion-core`: Makefile centralizado para builds iOS/Android
-- `thurion-ios`: Xcode com script de build Rust integrado
-- `thurion-android`: Gradle com tasks para compilação nativa
-
-**Configuração:**
-- Toggle local/remote para desenvolvimento do Rust core
-- Scripts automatizados para build e integração
-- Dependências gerenciadas via submodules e package managers
-
-**Compartilhamento:**
-- Tipos de domínio definidos no Rust core
-- Contratos de API via UniFFI
-- Documentação centralizada no `thurion-project`
+### Android  
+- **Compatibilidade:** Android 8.0+
+- **Recursos:** Notificações inteligentes, Widget
+- **Download:** Google Play (em breve)
 
 ---
 
-## 🎯 Personas & Proposta de Valor
+## � Como Começar
 
-### B2C Free — Guardião Familiar
-- **Perfil:** Proprietário individual
-- **Plano:** Free (gratuito)
-- **Valor:** Previsibilidade e tranquilidade
+1. **Baixe o aplicativo** na App Store ou Google Play
+2. **Crie sua conta** gratuitamente
+3. **Permita o acesso** aos sensores do dispositivo
+4. **Comece a dirigir** - o Thurion faz o resto automaticamente
 
-### B2C Pro — Operador Intensivo  
-- **Perfil:** Motorista profissional / uso severo
-- **Plano:** R$ 25,00/mês
-- **Valor:** Proteção de margem e evidência fiscal
-
-### B2B — Gestor de Frota
-- **Perfil:** 5-200 veículos (logística, serviços, vendas)
-- **Planos:** Essencial e Avançado (por veículo)
-- **Valor:** Planejamento preditivo e governança sem vigilância
+### Configuração Rápida
+- Permissão de localização (sempre permitido)
+- Permissão de sensores de movimento
+- Notificações ativadas
+- Pronto! 🎉
 
 ---
 
-## 🚀 Roadmap de Implementação
+## 📊 Planos e Preços
 
-### ✅ MVP (v1.0) - Concluído
-- [x] Rastreamento automático com ML
-- [x] Map matching HMM/Viterbi  
-- [x] Classificação de eventos CoreML
-- [x] Live Activities & Dynamic Island
-- [x] Integração Swift-Rust via UniFFI
-- [x] Background tracking (app terminated)
-
-### 🚧 v1.1 - Em Desenvolvimento (Q1 2025)
-- [ ] Health Score Dashboard UI
-- [ ] UI refinements (animations, dark mode, accessibility)
-- [ ] Export features (GeoJSON, share, PDF)
-
-### 📅 v1.2 - Planejado (Q2 2025)  
-- [ ] Sistema de Abastecimento com preços ANP
-- [ ] Visualização de Desgaste com heatmap de condições
-
-### 🔥 v2.0 - Modelo Estocástico (Q3-Q4 2025)
-- [ ] Modelagem Térmica (IET, cache climático)
-- [ ] Modelos Avançados de Degradação (Arrhenius, Weibull)
-- [ ] Multi-vehicle Support
+| Plano | Ideal Para | Preço | Recursos Principais |
+|-------|------------|-------|-------------------|
+| **Free** | Uso familiar | Grátis | Saúde básica, histórico, alertas |
+| **Pro** | Motoristas | R$ 25,00/mês | Dados legais, relatórios, evidência fiscal |
+| **Frota** | Empresas | Sob consulta | Dashboard, múltiplos veículos, relatórios avançados |
 
 ---
 
-## 🛠️ Começando
+## � Privacidade e Segurança
 
-### Pré-requisitos
-- **iOS:** Xcode 15+, iOS 17+, Swift 5.9+, Rust 1.75+
-- **Android:** Android Studio, Android SDK, Rust toolchain com targets Android
-- **Core:** Rust 1.75+ com targets iOS/Android
-
-### Setup do Ambiente
-
-```bash
-# Clonar repositórios
-git clone https://github.com/thurionapp/thurion-ios.git
-git clone https://github.com/thurionapp/thurion-android.git  
-git clone https://github.com/thurionapp/thurion-core.git
-git clone https://github.com/thurionapp/thurion-project.git
-
-# Setup do Rust core (central)
-cd thurion-core
-make dev-setup  # Configura targets, cargo-ndk, etc.
-
-# Build multiplataforma
-make all        # iOS + Android libraries
-```
-
-### Build dos Aplicativos
-
-**iOS:**
-```bash
-cd thurion-ios
-git submodule update --init --recursive  # thurion-core
-open thurion-ios.xcodeproj
-# Build (⌘B) ou Run (⌘R)
-```
-
-**Android:**
-```bash
-cd thurion-android
-./gradlew assembleDebug  # Build automático do Rust core
-```
+- **Seus dados ficam no seu dispositivo**
+- **Processamento local** - não enviamos dados desnecessários
+- **Criptografia** de ponta a ponta
+- **Conformidade** com LGPD
+- **Sem vigilância** - monitoramos o veículo, não você
 
 ---
 
-## 📊 Principais Tecnologias
+## 🌟 Por que escolher o Thurion?
 
-### Mobile (iOS/Android)
-- **SwiftUI/TCA** (iOS) - Arquitetura reativa moderna
-- **Kotlin/Gradle** (Android) - Stack moderno com build customizado
-- **CoreML** - Inferência ML on-device
-- **ActivityKit** - Live Activities e Dynamic Island
+### � Menos Ansiedade
+- Saiba exatamente quando seu carro precisa de cuidados
+- Sem surpresas com manutenção emergencial
+- Previsibilidade no orçamento
 
-### Core (Rust)
-- **UniFFI** - Bridge Swift/Kotlin ↔ Rust
-- **rusqlite** - SQLite para persistência
-- **rstar** - R-tree spatial index (map matching)
-- **petgraph** - Grafos para algoritmo A*
-- **burn** - ML framework para detecção
-- **lz4_flex** - Compressão de telemetria
+### 💸 Mais Economia
+- Manutenção no momento certo (nem cedo, nem tarde)
+- Vida útil prolongada do veículo
+- Redução de custos operacionais
 
-### Backend & Infra
-- **Firebase** - Auth, Analytics, Crashlytics
-- **Supabase** - PostgreSQL como Single Source of Truth
-- **RevenueCat** - Billing e assinaturas
-- **CDN** - Tiles de mapa OSM comprimidos
+### 📈 Inteligência Real
+- IA que aprende com seu padrão de uso
+- Análise de severidade contextualizada
+- Recomendações personalizadas
 
 ---
 
-## 📚 Documentação Completa
+## �️ Roadmap
 
-### Documentação de Produto
-- [Visão Geral](thurion-project/docs/product/overview.md)
-- [Modelo Matemático](thurion-project/docs/product/mathematical-core.md)
-- [Filosofia do Produto](thurion-project/docs/product/product-philosophy.md)
+### ✅ Já Disponível
+- [x] Rastreamento automático
+- [x] Análise de saúde veicular
+- [x] Live Activities (iOS)
+- [x] Mapas inteligentes
 
-### Documentação Técnica  
-- [Arquitetura](thurion-project/README.md#arquitetura)
-- [ADRs](thurion-project/docs/adr/) - Architecture Decision Records
-- [Integrações](thurion-project/docs/RevenueCat/README.md)
+### 🚧 Em Breve
+- [ ] Sistema de abastecimento
+- [ ] Relatórios detalhados
+- [ ] Compartilhamento fácil
 
-### Guias de Desenvolvimento
-- [iOS Build Guide](thurion-ios/README.md#build-do-projeto)
-- [Android Build Guide](thurion-android/README.md#build-commands)  
-- [Rust Core Build](thurion-core/README.md#build-system-multiplataforma)
+### 📅 Planejado
+- [ ] Multi-veículo
+- [ ] Integração com oficinas
+- [ ] Análise avançada de desgaste
 
 ---
 
-## 🤝 Contribuição
+## 🤝 Comunidade
 
-Contribuições são bem-vindas! Por favor:
-
-1. Leia os [ADRs](thurion-project/docs/adr/) para entender decisões arquiteturais
-2. Siga os padrões de código de cada repositório
-3. Teste suas mudanças em todas as plataformas
-4. Documente novas funcionalidades
+- **Blog:** [blog.thurion.app](https://blog.thurion.app)
+- **Suporte:** [suporte@thurion.app](mailto:suporte@thurion.app)
+- **Status:** [status.thurion.app](https://status.thurion.app)
+- **Website:** [thurion.app](https://thurion.app)
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob os termos da licença MIT. Veja o arquivo [LICENSE](thurion-project/LICENSE) para detalhes.
+Este projeto é open source sob licença MIT. Veja o arquivo [LICENSE](./LICENSE) para detalhes.
 
 ---
 
-## 🔗 Links Úteis
-
-- **Website:** [thurion.app](https://thurion.app)
-- **Documentação:** [docs.thurion.app](https://docs.thurion.app)  
-- **Status:** [status.thurion.app](https://status.thurion.app)
-- **Blog:** [blog.thurion.app](https://blog.thurion.app)
+**Status:** 🚀 **Lançamento Iminente** - Entrando em fase final de testes.
 
 ---
 
-**Status:** ✅ **Production Ready** - iOS e Android builds funcionando com Rust core embarcado.
+*O Thurion cuida do seu veículo para você cuidar do que realmente importa.*
